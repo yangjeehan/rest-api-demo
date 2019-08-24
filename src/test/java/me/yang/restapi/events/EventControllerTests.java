@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -19,12 +20,13 @@ public class EventControllerTests {
     @Autowired
     MockMvc mockMvc;
 
+    // created는 201
     @Test
     public void createEvent() throws Exception {
         mockMvc.perform(post("/api/events/")
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
-                    .accept(MediaTypes.HAL_JSON)
-                    )
+                    .accept(MediaTypes.HAL_JSON))
+                .andDo(print())
                 .andExpect(status().isCreated());
     }
 
