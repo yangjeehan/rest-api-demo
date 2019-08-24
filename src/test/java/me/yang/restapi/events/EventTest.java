@@ -1,6 +1,5 @@
-package events;
+package me.yang.restapi.events;
 
-import me.yang.restapi.events.Event;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

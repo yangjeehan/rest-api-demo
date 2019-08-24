@@ -2,15 +2,19 @@ package me.yang.restapi.events;
 
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id")
+@Entity
 // EqualsAndHashCode 을 비교할 때 모든 필드를 사용하는데
 // Entity간 연관관계가 있을 때, EqualsAndHashCode을 통해하면 StackOverFlow가 발생 가능성이 있다.
 // 서로간 계속 호출 가능성이 있기 때문에
 public class Event {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;
@@ -24,6 +28,7 @@ public class Event {
     private int limitOfEnrollment;
     private boolean offline;
     private boolean free;
+    @Enumerated(EnumType.STRING)
     private EventStatus eventStatus;
 
 }

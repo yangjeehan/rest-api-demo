@@ -1,4 +1,4 @@
-package me.yang.demoinflearnrestapi;
+package me.yang.restapi;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

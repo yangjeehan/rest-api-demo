@@ -1,4 +1,9 @@
 package me.yang.restapi.events;
 
-public interface EventRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EventRepository extends JpaRepository<Event, Integer> {
+
+
+
 }
